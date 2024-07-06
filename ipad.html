@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lí Sản Phẩm Công Nghệ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+      }
+      .navbar {
+        background-color: #004a82;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .navbar h1 {
+        margin: 0;
+      }
+      .navbar input[type="text"] {
+        padding: 5px;
+        width: 300px;
+      }
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        justify-content: space-evenly;
+        position: relative; /* Added to position submenus correctly */
+      }
+      .navbar ul li {
+        position: relative;
+      }
+      .navbar ul li a {
+        padding: 5px 20px;
+        color: #fff;
+        text-decoration: none;
+      }
+      .navbar ul li a:hover {
+        color: #ffb8b8;
+        font-weight: bold;
+        background-color: #004a82;
+      }
+      /* Dropdown menu styling */
+      .navbar ul li ul {
+        display: none;
+        position: absolute;
+        background-color: #004a82;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        top: 100%; /* Positions the submenu below the main menu item */
+        left: 0; /* Aligns the submenu to the left edge of the parent item */
+      }
+      .navbar ul li:hover ul {
+        display: block;
+      }
+      .navbar ul li ul li {
+        width: 200px; /* Set the width for dropdown items */
+      }
+      .navbar ul li ul li a {
+        display: block;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+        background-color: #004a82; /* Background color for dropdown items */
+      }
+      .navbar ul li ul li a:hover {
+        background-color: #003b6b; /* Background color on hover */
+        color: #ffb8b8; /* Text color on hover */
+      }
+      .main-content {
+        display: flex;
+        width: 100%;
+      }
+      .sidebar-menu {
+        width: 20%;
+        background-color: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .sidebar-menu h2 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+      .sidebar-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+      .sidebar-menu li {
+        margin-bottom: 10px;
+      }
+      .sidebar-menu li a {
+        color: #004a82;
+        text-decoration: none;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+      }
+      .sidebar-menu li a:hover {
+        text-decoration: underline;
+      }
+      .sidebar-menu li a .fas {
+        margin-right: 10px;
+      }
+      .container {
+        padding: 20px;
+        flex: 1;
+      }
+      .post-header {
+        position: relative;
+      }
+      .header-image {
+        width: 100%;
+        height: auto;
+      }
+      .post-info {
+        padding: 20px;
+      }
+      .category {
+        background: #d32f2f;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        display: inline-block;
+      }
+      h1 {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+      .author-info {
+        display: flex;
+        align-items: center;
+      }
+      .author-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      .author-info p {
+        margin: 0;
+        color: #666;
+      }
+      .social-info {
+        margin-top: 10px;
+      }
+      .social-info a {
+        color: #d32f2f;
+        text-decoration: none;
+      }
+      .social-info a:hover {
+        text-decoration: underline;
+      }
+      .post-content {
+        margin-top: 20px;
+      }
+      .post-content img {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+      }
+      .footer {
+        background-color: #004a82;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+      .footer p {
+        margin: 0;
+        color: #fff;
+        text-align: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Quản Lí Sản Phẩm Công Nghệ</h1>
+      <input type="text" placeholder="Bạn cần tìm sản phẩm..." />
+      <ul>
+        <li>
+          <a href="trangchu.html"><i class="fas fa-home"></i> Trang Chủ</a>
+        </li>
+        <li>
+          <a href="review.html"><i class="fas fa-star"></i> Review Sản Phẩm</a>
+          <ul>
+            <li>
+              <a href="dienthoai.html"
+                ><i class="fas fa-mobile-alt"></i> Smartphones</a
+              >
+            </li>
+            <li>
+              <a href="laptop.html"><i class="fas fa-laptop"></i> Laptops</a>
+            </li>
+            <li>
+              <a href="mtbang.html"
+                ><i class="fas fa-tablet-alt"></i> Tablets</a
+              >
+            </li>
+            <li>
+              <a href="cam.html"><i class="fas fa-camera"></i> Cameras</a>
+            </li>
+            <li>
+              <a href="headphones.html"
+                ><i class="fas fa-headphones"></i> Headphones</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="tintuc.html"><i class="fas fa-newspaper"></i> Tin Tức</a>
+        </li>
+        <li>
+          <a href="lienhe.html"><i class="fas fa-envelope"></i> Liên hệ</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-upload"></i> Đăng bài viết/sản phẩm</a>
+          <ul>
+            <li>
+              <a href="baiviet.html"
+                ><i class="fas fa-pen"></i> Đăng bài viết</a
+              >
+            </li>
+            <li>
+              <a href="sanpham.html"
+                ><i class="fas fa-box"></i> Đăng sản phẩm</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <div class="sidebar-menu">
+        <h2>Danh mục sản phẩm</h2>
+        <ul>
+          <li>
+            <a href="SPbanchay.html"
+              ><i class="fas fa-fire"></i> Sản Phẩm Bán Chạy</a
+            >
+          </li>
+          <li>
+            <a href="SPmoi.html"><i class="fas fa-tags"></i> Sản Phẩm Mới</a>
+          </li>
+          <li>
+            <a href="SmartPhone.html"
+              ><i class="fas fa-mobile-alt"></i> Smartphones</a
+            >
+          </li>
+          <li>
+            <a href="Laptop.html"><i class="fas fa-laptop"></i> Laptops</a>
+          </li>
+          <li>
+            <a href="Tablets.html"><i class="fas fa-tablet-alt"></i> Tablets</a>
+          </li>
+          <li>
+            <a href="Cameras.html"><i class="fas fa-camera"></i> Cameras</a>
+          </li>
+          <li>
+            <a href="Tainghe.html"
+              ><i class="fas fa-headphones"></i> Headphones</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="post-header">
+          <div class="post-info">
+            <span class="category">Đánh giá</span>
+            <h1>
+              Đánh giá iPad sau 3 năm sử dụng: "Kiệt tác công nghệ" một thời
+              cũng khó chiến thắng được thời gian!
+            </h1>
+            <div class="author-info">
+              <img src="bao.webp" alt="Hà Quang Dự" class="author-image" />
+              <div>
+                <p>Hoàng Vũ</p>
+                <p>Ngày đăng: 01/07/2024 - Cập nhật: 02/07/2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="post-content">
+          <p>
+            <strong>Apple iPad</strong> từng được xem là đỉnh cao của
+            <a href="#">công nghệ</a> thế nhưng chỉ mới sau vài năm ra mắt, máy
+            đã không còn được nhiều người chú ý đến khi có khá nhiều nhược điểm.
+          </p>
+          <p>
+            Đối với cá nhân mình, điểm trừ lớn nhất của iPad Pro 11-inch đó là
+            nó không có được màn hình Mini LED như phiên bản 12.9-inch. Còn lại
+            thì đây là chiếc tablet nhỏ gọn tuyệt vời nhất mà anh em có thể mua
+            được. Việc Apple mang con chip M-series lên iPad Pro với mình nó
+            không có nhiều ý nghĩa cho lắm, ngoại trừ có lợi cho Apple vì tối ưu
+            hoá được dây chuyền sản xuất, thay vì phải làm thêm một con chip A
+            riêng cho iPad. Cho đến hiện tại, rõ ràng iPad Pro của năm 2020 vẫn
+            đang làm quá tốt việc của một chiếc tablet, ngoại trừ một số tính
+            năng là do Apple cố tách ra để người dùng nâng cấp lên iPad Pro M1
+            hay iPad Pro M2 mà thôi.
+          </p>
+          <img src="review-iPad-Pro-M2-1.webp" alt="Ipad pro m2" />
+          <h2>Mình dùng iPad Pro 11-inch M2 cho nhu cầu gì?
+        </h2>
+          <p>
+            Với khoảng nửa năm sử dụng iPad Pro 11-inch M2, công việc chủ yếu
+            của mình là gõ văn bản, chỉnh ảnh qua Lightroom, Canva (Adobe Spark
+            dùng không quen 😁), Photoshop. Chính vì vậy mà nếu chiếc iPad này
+            không có bàn phím thì với mình nó vô dụng, đó là điều mình đã gặp
+            phải khi dùng iPad Pro 2018 trước đây, do không có bàn phím nên nó
+            trở thành một thiết bị có cũng được, không có cũng được và cuối cùng
+            mình đã phải bán iPad Pro 2018 chỉ sau 1 tháng sử dụng.
+            <p>
+            Mình chọn bàn phím Magic Keyboard màu trắng cho iPad Pro màu silver của mình,
+            giờ nghĩ lại mới thấy dại vì màu trắng nó dễ dơ vô cùng, nhưng rồi
+            mình vẫn chọn vì thích, vậy thôi :D. Nói thật với anh em là sáu
+            tháng qua mình dùng iPad mà không có laptop, ngoại trừ chiếc PC ở
+            nhà mình thì mình không dùng laptop khi lên công ty, hoàn toàn dùng
+            iPad. Thế rồi khi mua laptop thì mình lại ít dùng đến iPad, nó lại
+            quay lại với tình huống vừa kể ở trên.
+            <p>
+                Lúc này mình mới nghĩ đến việc làm sao để mình không cảm thấy chán iPad và bán đi, vì phần cũng tiếc, nếu có gì hay hay muốn chia sẻ với anh em lại không có, vậy là mình thay đổi một chút để iPad trở nên không lạc lõng giữa đống thiết bị mình đang có.
+            </p>
+          </p>  
+        </p> 
+          <img
+            src="review-iPad-Pro-M2-2.webp"
+            alt="Ipad pro m2"
+          />
+          <h2>Mình tối ưu để iPad không trở nên hoang phí như thế nào?</h2>
+          <p>
+            Sáu tháng qua ngoại trừ một số chi tiết nho nhỏ mà iPad không thể làm nhanh hơn máy tính (sẽ chia sẻ kĩ hơn ở dưới) thì còn lại mình hoàn toàn hài lòng với những gì iPad mang lại cho mình. Nhưng như đã nói, khi có laptop rồi mình lại đâm ra lười dùng iPad, số lần mở iPad lên giảm hẳn đi, nhưng mình sẽ không để iPad hoang phí như trước nữa nên đã tối ưu nó theo nhu cầu của mình.
+            Universal Control chính là thứ giúp cho iPad và máy tính Mac trở nên liền lạc, ít nhất là với góc nhìn của mình. Đây là tính năng rất hay nhưng mình thấy ít người dùng, thiết lập thì không khó gì đâu, nó sẽ giúp cho anh em dùng một bộ input duy nhất (bàn phím và trackpad) để điều khiển cả hai thiết bị: máy Mac (iMac, Mac mini, Mac Pro, MacBook, Mac Studio) và iPad.
+          </p>
+          <p>Universal Control mình dùng nhiều nhất vào việc chuyển file, chuyển cả một folder hình mới chụp hay mới chỉnh sửa xong, chuyển file mind map, một file mình mới chỉnh sửa bên iPad xong qua bên máy Mac. Dùng AirDrop vẫn được thôi nhưng có hai máy ở ngay cạnh, tay sẵn trên bộ input thì kéo thả qua luôn chứ mở AirDrop thì lâu hơn. Nó còn làm được nhiều việc hơn nữa nếu như anh em dùng bộ iWork của Apple, nhưng mình không dùng nên phần này mình không nói.</p>
+          <p>
+            Ngoài Universal Control thì side car cũng là một tính năng giúp anh em tận dụng tốt hơn iPad đang có, dù mình không dùng nhiều nhưng mà lâu lâu cũng có xài. Tuy vậy mình thấy dùng side car thì pin iPad hao hơn khá nhiều so với bình thường (dùng Universal Control).
+          </p>
+          <p>
+            Đó là nếu anh em đang dùng máy Mac và có sẵn iPad, còn với máy tính Windows, mình dùng OneDrive để sync dữ liệu từ iPad qua PC ở nhà. Cho đến trước khi mình mua MacBook thì đó là cách để mình đồng bộ dữ liệu giữa hai máy, tất nhiên là nó không thể nào bằng được những thiết bị trong hệ sinh thái của Apple được, nhưng chỉ cần đồng bộ mấy folder mình hay dùng trên iPad với PC ở nhà là okie với mình rồi.
+          </p>
+          <p>Ngoài ra thì khi lên giường ngủ vào buổi tối, mình sẽ dùng iPad thay vì điện thoại, iPad màn hình to, có muốn coi video, coi phim trước khi ngủ cũng đã hơn điện thoại. Chưa kể, hôm nào không muốn coi phim thì lấy hình ra edit trên iPad lúc nằm trên giường cũng được.
+          </p>
+          <img
+            src="review-iPad-Pro-M2-3.webp"
+            alt="Ipad pro m2"
+          />
+          <h2>Chip Apple M2 quá dư thừa với nhu cầu của mình, hay nói cách khác là của iPad</h2>
+          <p>
+            VVới iPad Pro và con chip Apple M2, mình có thể dùng chiếc máy tính bảng này 4 năm nữa là hoàn toàn bình thường. iPad Pro 2018 bây giờ nhiều người vẫn còn dùng được thì xá gì chiếc iPad của mình.
+          </p>
+          <P>
+            Mình không quan trọng lắm iPad Pro chạy chip A series hay M series vì về cơ bản nó giống nhau. iPad chạy iPadOS, tác vụ và khả năng của nó hiện tại chưa bằng máy tính, nó vẫn giống iPhone phóng to (quan điểm cá nhân) nên có chip M thì nó cũng không giúp iPad Pro của mình thay đổi được tên file hàng loạt như trên MacBook được, nên nếu có dùng một con chip A15X hay A15Z thì với mình nó là như nhau thôi.
+          </P>
+          <P>
+            Mình không có gì nhiều để chia sẻ về hiệu năng của iPad Pro M2, nó mạnh và mạnh nhất trong thế giới tablet hiện tại. Phiên bản M2 trên iPad Pro là 10 nhân GPU, tức là tuỳ chọn GPU cao nhất nếu anh em mua MacBook Air 13-inch M2.
+          </P>
+          <img
+            src="review-iPad-Pro-M2-4.webp"
+            alt="Ipad pro m2"
+          />
+          <h2>Màn hình 11-inch đôi lúc thấy hơi chật chội
+        </h2>
+        <p>
+            Mình không mua phiên bản 12.9-inch là vì không đủ tiền, chỉ đơn giản thế thôi, nên chấp nhận bản 11-inch. Điểm mình không thích nhất trên chiếc máy tính bảng này có lẽ chỉ là tấm nền mà thôi, Apple phân cấp hơi quá khi mà không trang bị Mini LED cho bản 11-inch, có lẽ vì giá, mình nghĩ vậy.
+        </p>
+        <p>
+            IPS LCD trên iPad Pro 11-inch M2 vẫn rất tốt, rất đẹp, màu sắc và độ tương phản mình không có gì để chê, độ sáng peak 600 nits cũng ổn, nhưng tối đến khi xem phim trên Apple TV+ mà nhìn màn hình IPS LCD nó xám xám làm mình cảm thấy chạnh lòng. Còn nếu muốn có tấm nền Mini LED, kích thước màn hình lớn hơn, xem đã hơn thì okie có luôn, chỉ cần thêm 8 triệu nữa thôi hihi :D.
+        </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; 2024 Quản Lí Sản Phẩm Công Nghệ</p>
+    </div>
+  </body>
+</html>
